@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
+<!--version 13-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jspanel3/3.10.0/jquery.jspanel.css">
+    
+<!-- version 14
+<link href="https://cdn.jsdelivr.net/npm/jspanel4@4.5.0/dist/jspanel.css" rel="stylesheet">
+        -->
+    </head>
+<style>
+    input{
+        top:0%;
+        position: absolute;
+        z-index: 1;
+    }
+    button{
+        top:50%;
+        position: absolute;
+        z-index: 1;
+    }
+</style>
+    </head>
+    <body>
+            
+               
+        <div class="main-contained">
+            <div id="mapa" class="height-100-p"></div>
+        </div>
+    
+       <input type="button" value="click to open" onclick="clickToOpen()"">
+       <button id="gettingstarted-2" type="button" class="btn btn-primary btn-sm sample" >Execute example 2</button>
+<!-- jsPanel JavaScript 
+       
+       
+        <script type="text/javascript">
+            function clickToOpen() {
+             $.jsPanel.clickToOpen({
+            position: {my: "center-top", at: "center-top", offsetY: 15},
+            size:     {width: 120, height: 270},
+            overflow: {vertical: 'scroll'},
+            theme:    "rebeccapurple",   
+            headerTitle: "Example jsPanel",
+            content:     "<p>Some sample text ...</p>",
+            callback:    function () {
+                this.content.css("padding", "15px");
+            }
+            });
+            }   
+            </script>
+            -->
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDs2b19WiLZPjePFvHbkvDL0qDPKOE8gXw&libraries=visualization,drawing"></script>
+            <script type="text/javascript" src="../Scripts/maps.js"></script>
+            
+<!--version 14
+            <script src="https://cdn.jsdelivr.net/npm/jspanel4@4.5.0/dist/jspanel.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/jspanel4@4.5.0/dist/extensions/modal/jspanel.modal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.5.0/dist/extensions/tooltip/jspanel.tooltip.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.5.0/dist/extensions/hint/jspanel.hint.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.5.0/dist/extensions/layout/jspanel.layout.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.5.0/dist/extensions/contextmenu/jspanel.contextmenu.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.5.0/dist/extensions/dock/jspanel.dock.js"></script>
+-->
+<!--version 13-->
+            <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspanel3/3.10.0/jquery.jspanel-compiled.js"></script>
+        
+<!--
+            <script>
+            $('#gettingstarted-2').click(function () {
+        "use strict";
+        $.jsPanel({
+            position:    {my: "center-top", at: "center-top", offsetY: 15},
+            theme:       "rebeccapurple",
+            contentSize: {width: 600, height: 350},
+            headerTitle: "Example jsPanel",
+            content:     "<p>Some sample text ...</p>",
+            callback:    function () {
+                this.content.css("padding", "15px");
+            }
+        });
+    });
+            </script>
+            -->
+            
+            <script type="text/javascript">
+                function clickToOpen() {     
+                    $.jsPanel({
+    theme:    "teal",
+    /*paneltype:   'modal', no permite manipular modal*/
+    headerTitle: 'Usuario',
+    headerToolbar: [
+        {
+            item:     "<span class='fa fa-bars' style='cursor:pointer;'>",
+            event:    "click",
+            callback: function (event) {event.data.content.append("<p>You clicked on the menu ...</p>"); }
+        },
+        {
+            item:     "<span class='fa fa-cog' style='cursor:pointer;margin-left:5px;'>",
+            event:    "click",
+            callback: function (event) {event.data.content.append("<p>You clicked on the tools this time ...</p>"); }
+        },
+        {
+            item:     "<span class='fa fa-sign' style='cursor:pointer;margin-left:5px;'>",
+            event:    "click",
+            callback: function (event) {event.data.content.append("<p>Logout ...</p>"); }
+        },
+        {
+            item:     "<span class='fa fa-bars' style='cursor:pointer;'>",
+            event:    "click",
+            callback: function (event) {event.data.content.append("<p>You clicked on the menu ...</p>"); }
+        },
+        {
+            item:     "<span class='fa fa-cog' style='cursor:pointer;margin-left:5px;'>",
+            event:    "click",
+            callback: function (event) {event.data.content.append("<p>You clicked on the tools this time ...</p>"); }
+        },
+        {
+            item:     "<span class='fa fa-sign' style='cursor:pointer;margin-left:5px;'>",
+            event:    "click",
+            callback: function (event) {event.data.content.append("<p>Logout ...</p>"); }
+        }
+    ],
+    content:     '<div class="container-fluid"><div class="row">'+
+                /* use only col-xs- classes to prevent the columns from responding to window size changes */
+                '<div class="col-xs-3">.col-xs-3</div>'+
+                '<div class="col-xs-3">.col-xs-3</div>'+
+                '<div class="col-xs-3">.col-xs-3</div>'+
+                '<div class="col-xs-3">.col-xs-3</div>'+
+             '</div></div>'
+});
+    }   
+                </script>
+    </body>
+</html>
